@@ -1,14 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 :root {
-  --first: #0c056d;
-  --second: #590d82;
-  --third: #b61aae;
-  --fourth: #f25d9c;
-  --primary-text: #212121;
-  --secondary-text: #757575;
-  --divider: #bdbdbd;
-  --text: #ffffff;
+  --primary-color: #f5f6fa;
+  --secondary-color: #7f8fa6;
+  --text-color: #000000;
 }
 
 * {
@@ -18,9 +13,9 @@
 }
 
 body {
-  background: var(--fourth);
+  background: var(--primary-color);
   font-family: 'Montserrat', sans-serif;
-  color: var(--primary-text);
+  color: var(--text-color);
   line-height: 1.5;
 }
 
@@ -34,10 +29,10 @@ ul {
 
 .btn {
   display: inline-block;
-  background: var(--first);
+  background: var(--secondary-color);
   padding: 10px 20px;
   font-weight: bold;
-  color: var(--text);
+  color: var(--text-color);
   font-size: 15px;
 }
 
@@ -57,12 +52,12 @@ ul {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* height: 60px; */
+  height: 75px;
   padding: 20px 0;
 }
 
 .navbar .logo {
-  width: 100px;
+  width: 75px;
 }
 
 .navbar ul {
@@ -74,22 +69,23 @@ ul {
 }
 
 .navbar ul li a {
-  color: var(--text);
+  color: var(--text-color);
 }
 
 .navbar ul li a:hover {
-  border-bottom: 2px solid var(--secondary-text);
+  border-bottom: 2px solid var(--text-color);
 }
 
 /* Showcase */
 .showcase {
   width: 100%;
+  padding-bottom: 100px;
   display: flex;
   align-items: center;
 }
 
 .showcase-content {
-  padding: 100px 0;
+  padding-bottom: 50px;
   text-align: center;
 }
 
@@ -109,12 +105,11 @@ ul {
 
 /* Cards */
 .home-cards {
-  /* background-color: var(--first); */
   color: var(--text);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 
 .home-cards img {
@@ -127,20 +122,34 @@ ul {
 }
 
 .home-cards p {
-  color: var(--primary-text);
+  color: var(--text-color);
 }
 
 .home-cards a {
   display: inline-block;
   padding-top: 10px;
-  color: var(--primary-text);
+  color: var(--text-color);
   font-weight: bold;
+}
+
+.card {
+  padding: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 250px;
+  height: 250px;
+}
+
+.card .btn {
+  margin: 20px;
 }
 
 /* Testimonial */
 .testimonial {
-  background-color: var(--second);
-  color: var(--text);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   display: flex;
   align-items: center;
 }
@@ -154,13 +163,14 @@ ul {
 }
 
 .testimonial img {
-  width: 500px;
-  height: 500px;
+  width: 50%;
 }
 
 /* Mission */
 .mission {
-  display: flex;
+  width: 100%;
+  background: url('./images/mission.png') no-repeat center center/cover;
+  margin: 20px 0;
 }
 
 .mission-content {
@@ -183,7 +193,7 @@ ul {
 
 /* Footer */
 .footer {
-  background-color: var(--second);
+  background-color: var(--secondary-color);
   padding: 50px 80px;
 }
 
@@ -193,16 +203,16 @@ ul {
 }
 
 .footer ul li {
-  color: var(--text);
+  color: var(--text-color);
   padding: 0 10px;
 }
 
 .footer ul li a {
-  color: var(--text);
+  color: var(--text-color);
 }
 
 .footer ul li a:hover {
-  border-bottom: 2px solid var(--secondary-text);
+  border-bottom: 2px solid var(--text-color);
 }
 
 .copyright {
