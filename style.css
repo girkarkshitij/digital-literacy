@@ -2,14 +2,19 @@
 
 :root {
   --primary-color: #f5f6fa;
-  --secondary-color: #7f8fa6;
+  --secondary-color: #6200ee;
   --text-color: #000000;
+  --light-text-color: #ffffff;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -32,7 +37,7 @@ ul {
   background: var(--secondary-color);
   padding: 10px 20px;
   font-weight: bold;
-  color: var(--text-color);
+  color: var(--light-text-color);
   font-size: 15px;
 }
 
@@ -128,7 +133,7 @@ ul {
 .home-cards a {
   display: inline-block;
   padding-top: 10px;
-  color: var(--text-color);
+  color: var(--light-text-color);
   font-weight: bold;
 }
 
@@ -169,7 +174,8 @@ ul {
 /* Mission */
 .mission {
   width: 100%;
-  background: url('./images/mission.png') no-repeat center center/cover;
+  background: #4776e6;
+  background: linear-gradient(to right, #8e54e9, #4776e6);
   margin: 20px 0;
 }
 
@@ -184,6 +190,8 @@ ul {
 
 .mission-content .btn {
   margin: 20px 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .mission img {
@@ -203,12 +211,12 @@ ul {
 }
 
 .footer ul li {
-  color: var(--text-color);
+  color: var(--light-text-color);
   padding: 0 10px;
 }
 
 .footer ul li a {
-  color: var(--text-color);
+  color: var(--light-text-color);
 }
 
 .footer ul li a:hover {
@@ -217,4 +225,160 @@ ul {
 
 .copyright {
   justify-self: flex-end;
+}
+
+.slider {
+  position: relative;
+  width: 960px;
+  height: 300px;
+  margin: 50px auto;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 200px;
+  text-align: center;
+  transform: translatex(-50%);
+  z-index: 1000;
+
+  list-style: none;
+  text-align: center;
+}
+
+.slider input[type='radio'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-controls label {
+  display: inline-block;
+  border: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #212121;
+  transition: background-color 0.2s linear;
+}
+
+#btn-1:checked ~ .slider-controls label[for='btn-1'] {
+  background-color: #ff4081;
+}
+
+#btn-2:checked ~ .slider-controls label[for='btn-2'] {
+  background-color: #ff4081;
+}
+
+#btn-3:checked ~ .slider-controls label[for='btn-3'] {
+  background-color: #ff4081;
+}
+
+/* SLIDES */
+
+.slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transform: translatex(-100%);
+  transition: transform 250ms linear;
+}
+
+.slide-content {
+  width: 600px;
+}
+
+.slide-title {
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+.slide-text {
+  margin-bottom: 20px;
+}
+
+.slide-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  background-color: #ff4081;
+}
+
+.slide-image img {
+  max-width: 100%;
+}
+
+/* Slide animations */
+#btn-1:checked ~ .slides .slide:nth-child(1) {
+  transform: translatex(0);
+  opacity: 1;
+}
+
+#btn-2:checked ~ .slides .slide:nth-child(2) {
+  transform: translatex(0);
+  opacity: 1;
+}
+
+#btn-3:checked ~ .slides .slide:nth-child(3) {
+  transform: translatex(0);
+  opacity: 1;
+}
+
+#btn-1:not(:checked) ~ .slides .slide:nth-child(1) {
+  animation-name: swap-out;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+
+#btn-2:not(:checked) ~ .slides .slide:nth-child(2) {
+  animation-name: swap-out;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+
+#btn-3:not(:checked) ~ .slides .slide:nth-child(3) {
+  animation-name: swap-out;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+
+@keyframes swap-out {
+  0% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translatex(50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translatex(100%);
+  }
 }
